@@ -29,10 +29,13 @@ public class Main {
             String input = scanner.nextLine().trim();
             String[] arr = input.split("\\s+", 2);
             String commandName = arr[0];
-            String argument = arr[1];
+
             if (mapOfCommands.containsKey(commandName)) {
-                mapOfCommands.get(commandName).apply(argument);
-                continue;
+                if (arr.length == 2) {
+                    String argument = arr[1];
+                    mapOfCommands.get(commandName).apply(argument);
+                    continue;
+                }
             }
             System.out.println(input + ": command not found");
         }
