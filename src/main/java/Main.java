@@ -4,8 +4,20 @@ import java.util.function.Function;
 
 public class Main {
     
-    HashMap<String, Function<String, Void>> mapOfCommands = new HashMap<>();
+    static HashMap<String, Function<String, Void>> mapOfCommands = new HashMap<>();
 
+    static {
+        mapOfCommands.put("echo", (input) -> {
+            Commands.echo(input);
+            return null;
+        });
+
+        mapOfCommands.put("exit", (input) -> {
+            Commands.echo(input);
+            return null;
+        });
+
+    }
 
 
 
@@ -14,13 +26,14 @@ public class Main {
 
         while (true) { 
             System.out.print("$ ");
-            String input = scanner.nextLine();
-            input = input.trim();
+            String input = scanner.nextLine().trim();
             String[] arr = input.split("\\s+", 2);
-
-            
-
-
+            String commandName = arr[0];
+            String argument = arr[1];
+            if (mapOfCommands.containsKey(commandName)) {
+                mapOfCommands.get(commandName).apply(argument);
+                continue;
+            }
             System.out.println(input + ": command not found");
         }
 
