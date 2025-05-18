@@ -8,4 +8,12 @@ public class Commands {
             System.exit(0);
         }
     }
+
+    public static void type(String input) {
+        if (Main.mapOfCommands.containsKey(input)){
+            System.out.println(input + " is a shell builtin");
+        } else {
+            System.out.println(input + ": not found");
+        }
+    }
 }

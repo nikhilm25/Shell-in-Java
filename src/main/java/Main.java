@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 public class Main {
     
-    static HashMap<String, Function<String, Void>> mapOfCommands = new HashMap<>();
+    public static HashMap<String, Function<String, Void>> mapOfCommands = new HashMap<>();
 
     static {
         mapOfCommands.put("echo", (input) -> {
@@ -14,6 +14,11 @@ public class Main {
 
         mapOfCommands.put("exit", (input) -> {
             Commands.exit(input);
+            return null;
+        });
+
+        mapOfCommands.put("type", (input) -> {
+            Commands.type(input);
             return null;
         });
 
