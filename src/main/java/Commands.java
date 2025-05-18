@@ -8,6 +8,4 @@ public class Commands {
             System.exit(0);
         }
     }
-
-
 }

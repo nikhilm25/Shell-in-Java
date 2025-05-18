@@ -13,7 +13,7 @@ public class Main {
         });
 
         mapOfCommands.put("exit", (input) -> {
-            Commands.echo(input);
+            Commands.exit(input);
             return null;
         });
 
@@ -21,7 +21,7 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) { 
