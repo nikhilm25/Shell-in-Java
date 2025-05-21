@@ -76,7 +76,7 @@ public class Main {
                 }
             } else if (externalExecutables.containsKey(commandName)) {
                 List<String> commandList = new ArrayList<>();
-                commandList.add(externalExecutables.get(commandName).toString());
+                commandList.add(externalExecutables.get(commandName).toFile().getName().toString());
                 if (arr.length >= 2) {
                     String[] arguments = arr[1].split("\\s+");
                     for (String argument : arguments) {
@@ -94,6 +94,8 @@ public class Main {
                 System.out.println(input + ": command not found");
             }
         }
+
+
 
         
     }
