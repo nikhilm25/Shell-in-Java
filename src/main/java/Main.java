@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.function.Function;
@@ -23,6 +24,14 @@ public class Main {
         });
 
     }
+    static String pathEnv = System.getenv("PATH");
+
+    public static String[] paths = pathEnv.split(File.pathSeparator);
+
+
+
+
+
 
 
 
