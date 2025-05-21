@@ -27,6 +27,11 @@ public class Main {
             return null;
         });
 
+        mapOfCommands.put("pwd", (input) -> {
+            Commands.pwd(input);
+            return null;
+        });
+
     }
     static String pathEnv = System.getenv("PATH");
 
@@ -73,11 +78,14 @@ public class Main {
                 if (arr.length == 2) {
                     String argument = arr[1];
                     mapOfCommands.get(commandName).apply(argument);
+                } else {
+                    String argument = "";
+                    mapOfCommands.get(commandName).apply(argument);
                 }
             } else if (externalExecutables.containsKey(commandName)) {
                 List<String> commandList = new ArrayList<>();
                 commandList.add(externalExecutables.get(commandName).toFile().getName().toString());
-                if (arr.length >= 2) {
+                if (arr.length == 2) {
                     String[] arguments = arr[1].split("\\s+");
                     for (String argument : arguments) {
                         if (!argument.isEmpty()) commandList.add(argument);

@@ -29,5 +29,9 @@ public class Commands {
         System.out.println(input + ": not found");
 
     }
+
+    public static void pwd(String input) {
+        String currentDir = System.getProperty("user.dir");
+        System.out.println(currentDir);
+    }
 }
-                                                
