@@ -8,6 +8,8 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Main {
+
+    public static Path currentDir = Paths.get(System.getProperty("user.dir"));
     
     public static HashMap<String, Function<String, Void>> mapOfCommands = new HashMap<>();
 
@@ -29,6 +31,11 @@ public class Main {
 
         mapOfCommands.put("pwd", (input) -> {
             Commands.pwd(input);
+            return null;
+        });
+
+        mapOfCommands.put("cd", (input) -> {
+            Commands.cd(input);
             return null;
         });
 
@@ -92,6 +99,7 @@ public class Main {
                     }
                 }
                 ProcessBuilder pb = new ProcessBuilder(commandList);
+                pb.directory(currentDir.toFile());
                 try {
                     Process process = pb.inheritIO().start();
                     process.waitFor();

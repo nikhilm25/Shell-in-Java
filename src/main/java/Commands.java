@@ -31,7 +31,15 @@ public class Commands {
     }
 
     public static void pwd(String input) {
-        String currentDir = System.getProperty("user.dir");
-        System.out.println(currentDir);
+        System.out.println(Main.currentDir);
+    }
+
+    public static void cd(String input) {
+        if (input.equals("~")){
+            Main.currentDir = Paths.get(System.getProperty("user.home"));
+            return;
+        }
+        Path newPath = Main.currentDir.resolve(input).normalize();
+        Main.currentDir = newPath;
     }
 }
