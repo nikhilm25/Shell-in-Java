@@ -84,6 +84,7 @@ public class Main {
             if (mapOfCommands.containsKey(commandName)) {
                 if (arr.length == 2) {
                     String argument = arr[1];
+                    argument = argument.replaceAll("^'+|'+$", "");
                     mapOfCommands.get(commandName).apply(argument);
                 } else {
                     String argument = "";
