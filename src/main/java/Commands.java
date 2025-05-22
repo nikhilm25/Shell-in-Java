@@ -36,11 +36,11 @@ public class Commands {
 
     public static void cd(String input) {
         if (input.equals("~")){
-            Main.currentDir = Paths.get(System.getProperty("user.home"));
+            Main.currentDir = Paths.get(System.getenv("HOME"));
             return;
         }
         Path newPath = Main.currentDir.resolve(input).normalize();
-        if (!Files.exists(newPath)) {
+        if (!Files.exists(newPath) || !Files.isDirectory(newPath)) {
             System.out.println(input + ": No such file or directory");
         }
         Main.currentDir = newPath;
