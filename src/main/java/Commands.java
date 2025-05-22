@@ -40,6 +40,9 @@ public class Commands {
             return;
         }
         Path newPath = Main.currentDir.resolve(input).normalize();
+        if (!Files.exists(newPath)) {
+            System.out.println(input + ": No such file or directory");
+        }
         Main.currentDir = newPath;
     }
 }
