@@ -3,8 +3,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Commands {
+
+    public static String handleQuotes(String input) {
+        if (input.startsWith("\'") && input.endsWith("\'")) {
+            input = input.substring(1, input.length() - 1);
+        } else if ((input.startsWith("\"") && input.endsWith("\""))) {
+            input = input.substring(1, input.length() - 1);
+        } else {
+            input = String.join("",input.split("\\s+"));
+        }
+        return input;
+    }
+
     public static void echo(String input) {
-        System.out.println(input);
+            System.out.println(input);
     }
 
     public static void exit(String input) {
@@ -44,5 +56,9 @@ public class Commands {
             System.out.println(input + ": No such file or directory");
         }
         Main.currentDir = newPath;
+    }
+
+    public static void cat(String input) {
+        System.out.println(input);
     }
 }
