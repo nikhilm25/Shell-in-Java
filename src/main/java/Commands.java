@@ -9,7 +9,7 @@ public class Commands {
         if (input.startsWith("\'") && input.endsWith("\'")) {
             Integer singleQuotesCount = 0;
             Boolean firstSpace = false;
-            for (int i = 1; i < input.length(); i++) {
+            for (int i = 0; i < input.length(); i++) {
                 String character = input.substring(i, i + 1);
                 if (character.equals("'")) {
                     singleQuotesCount++;
@@ -36,7 +36,7 @@ public class Commands {
         }
         return output;
     }
-    
+
 
     public static void echo(String input) {
             System.out.println(input);
