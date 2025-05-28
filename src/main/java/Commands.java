@@ -8,15 +8,18 @@ public class Commands {
         String output = "";
         if (input.startsWith("\'") && input.endsWith("\'")) {
             Integer singleQuotesCount = 0;
-            Boolean firstSpace = true;
+            Boolean firstSpace = false;
             for (int i = 1; i < input.length(); i++) {
-                if (input.charAt(i) == '\'') {
-
+                String character = input.substring(i, i + 1);
+                if (character.equals("'")) {
                     singleQuotesCount++;
+                    if (singleQuotesCount % 2 == 0) {
+                        firstSpace = true;
+                    }
 
                 } else if (singleQuotesCount % 2 == 1) {
 
-                    output += input.charAt(i);
+                    output += character;
 
                 } else {
                     if (firstSpace) {
@@ -33,6 +36,7 @@ public class Commands {
         }
         return output;
     }
+    
 
     public static void echo(String input) {
             System.out.println(input);
