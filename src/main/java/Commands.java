@@ -5,14 +5,38 @@ import java.nio.file.Paths;
 public class Commands {
 
     public static String handleQuotes(String input) {
+        String output = "";
         if (input.startsWith("\'") && input.endsWith("\'")) {
-            input = input.substring(1, input.length() - 1);
+            Integer singleQuotesCount = 0;
+            Boolean firstSpace = true;
+            for (int i = 1; i < input.length(); i++) {
+
+                if (input.charAt(i) == '\'') {
+
+                    singleQuotesCount++;
+
+                } else if (input.charAt(i) == ' ') {
+                    if (((singleQuotesCount & 1) == 1) ) {
+                        output = output + ' ';
+                    } else {
+                        if (firstSpace ) {
+                            output = output + ' ';
+                            firstSpace = false;
+                        } else {
+                            continue;
+                        }
+                    }
+                } else {
+                    output = output + input.charAt(i);
+                }
+            }
+
         } else if ((input.startsWith("\"") && input.endsWith("\""))) {
-            input = input.substring(1, input.length() - 1);
+            output = input.substring(1, input.length() - 1);
         } else {
-            input = String.join(" ",input.split("\\s+"));
+            output = String.join(" ",input.split("\\s+"));
         }
-        return input;
+        return output;
     }
 
     public static void echo(String input) {
