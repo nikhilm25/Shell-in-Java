@@ -10,24 +10,19 @@ public class Commands {
             Integer singleQuotesCount = 0;
             Boolean firstSpace = true;
             for (int i = 1; i < input.length(); i++) {
-
                 if (input.charAt(i) == '\'') {
 
                     singleQuotesCount++;
 
-                } else if (input.charAt(i) == ' ') {
-                    if (((singleQuotesCount & 1) == 1) ) {
-                        output = output + ' ';
-                    } else {
-                        if (firstSpace ) {
-                            output = output + ' ';
-                            firstSpace = false;
-                        } else {
-                            continue;
-                        }
-                    }
+                } else if (singleQuotesCount % 2 == 1) {
+
+                    output += input.charAt(i);
+
                 } else {
-                    output = output + input.charAt(i);
+                    if (firstSpace) {
+                        output += ' ';
+                        firstSpace = false;
+                    }
                 }
             }
 
