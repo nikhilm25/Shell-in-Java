@@ -1,35 +1,121 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/0d882221-879a-4458-a60e-75090afcb88a)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# Shell-on-the-JVM
 
-This is a starting point for Java solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+A POSIX-compliant shell implementation built from scratch in Java .
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+## 🎯 Overview
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+This project implements a fully functional command-line shell that can interpret shell commands, execute external programs, and handle builtin commands. The shell supports advanced features like command history, autocompletion, pipelines, redirection, and proper quote handling.
 
-# Passing the first stage
+## ✨ Features
 
-The entry point for your `shell` implementation is in `src/main/java/Main.java`.
-Study and uncomment the relevant code, and push your changes to pass the first
-stage:
+### Core Functionality
+- **Interactive REPL** - Read-Eval-Print Loop with command prompt
+- **Command Execution** - Run external programs and builtin commands
+- **Error Handling** - Proper handling of invalid commands
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
-```
+### Builtin Commands
+- `exit` - Exit the shell
+- `echo` - Display text with support for quoted strings
+- `pwd` - Print current working directory
+- `cd` - Change directory (absolute paths, relative paths, home directory)
+- `type` - Identify command types (builtins vs external executables)
+- `history` - Command history management
 
-Time to move on to the next stage!
+### Advanced Features
+- **Quoting Support**
+  - Single quotes (`'text'`)
+  - Double quotes (`"text"`)
+  - Backslash escaping (inside and outside quotes)
+  
+- **I/O Redirection**
+  - Redirect stdout (`>`, `>>`)
+  - Redirect stderr (`2>`, `2>>`)
+  
+- **Autocompletion**
+  - Builtin command completion
+  - Executable completion
+  - Argument completion
+  - Partial and multiple completion support
+  
+- **Pipelines**
+  - Multi-command pipelines (`cmd1 | cmd2 | cmd3`)
+  - Pipeline support for builtin commands
+  
+- **Command History**
+  - History navigation (up/down arrows)
+  - History persistence to file
+  - Configurable history limits
+  - Execute commands from history
 
-# Stage 2 & beyond
+## 🚀 Getting Started
 
-Note: This section is for stages 2 and beyond.
+### Prerequisites
+- Java 8 or higher
+- Unix-like operating system (Linux, macOS)
 
-1. Ensure you have `mvn` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/main/java/Main.java`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/nikhilm25/Shell-on-the-JVM.git
+cd Shell-on-the-JVM
+
+A POSIX-compliant shell implementation built from scratch in Java as part of the [CodeCrafters "Build your own Shell" challenge](https://codecrafters.io/challenges/shell).
+
+## 🎯 Overview
+
+This project implements a fully functional command-line shell that can interpret shell commands, execute external programs, and handle builtin commands. The shell supports advanced features like command history, autocompletion, pipelines, redirection, and proper quote handling.
+
+## ✨ Features
+
+### Core Functionality
+- **Interactive REPL** - Read-Eval-Print Loop with command prompt
+- **Command Execution** - Run external programs and builtin commands
+- **Error Handling** - Proper handling of invalid commands
+
+### Builtin Commands
+- `exit` - Exit the shell
+- `echo` - Display text with support for quoted strings
+- `pwd` - Print current working directory
+- `cd` - Change directory (absolute paths, relative paths, home directory)
+- `type` - Identify command types (builtins vs external executables)
+- `history` - Command history management
+
+### Advanced Features
+- **Quoting Support**
+  - Single quotes (`'text'`)
+  - Double quotes (`"text"`)
+  - Backslash escaping (inside and outside quotes)
+  
+- **I/O Redirection**
+  - Redirect stdout (`>`, `>>`)
+  - Redirect stderr (`2>`, `2>>`)
+  
+- **Autocompletion**
+  - Builtin command completion
+  - Executable completion
+  - Argument completion
+  - Partial and multiple completion support
+  
+- **Pipelines**
+  - Multi-command pipelines (`cmd1 | cmd2 | cmd3`)
+  - Pipeline support for builtin commands
+  
+- **Command History**
+  - History navigation (up/down arrows)
+  - History persistence to file
+  - Configurable history limits
+  - Execute commands from history
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Java 8 or higher
+- Unix-like operating system (Linux, macOS)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/nikhilm25/Shell-in-Java.git
+cd Shell-in-Java
