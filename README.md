@@ -111,7 +111,6 @@ This project implements a fully functional command-line shell that can interpret
 
 ### Prerequisites
 - Java 8 or higher
-- Unix-like operating system (Linux, macOS)
 
 ### Installation
 
